@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gökhan Mert Emlak & İnşaat</title>
+    <link rel="icon" type="image/png" href="favicon-32x32.png">
+</head>
+<body>
+
+  <p class="aciklama">DETAYLI BİLGİ İÇİN İLANLARDA BULUNAN BÜYÜK RESİME TIKLAYIN, FİYAT BİLGİSİ İÇİNSE WHATSAPP BUTONUNA TIKLAYIN.</p>
+
+ <form id="myForm">
+  <link
+  rel="stylesheet"
+  href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+  />
+  <div class="input-box">
+  <input type="text" placeholder="Ara... Örnek: '1+1 2+1 3+1 Villa'" id="searchbar" onkeyup="search_property()" name="search"/>
+  <span class="search">
+    <i class="uil uil-search search-icon"></i>
+  </span>
+  <i class="uil uil-times close-icon"></i>
+  </div>
+ </form>
+
+
+<header>
+  <div class="logo"><img class="logoresim" src="yuksekyukseklogo.png" alt="logo"></div>    
+  <input type="checkbox" id="menyAvPaa">
+  <label id="burger" for="menyAvPaa">
+      <div></div>
+      <div></div>
+      <div></div>
+  </label>
+  <nav id="meny"> 
+    <div class="ornek"><button onclick="location.href='index.html'" type="button"><p class="yazii"><strong>ANA SAYFA</strong></p></button></div>
+    <div class="ornekk"><button onclick="location.href='iletisim.html'" type="button"><p class="yaziii"><strong>İLETİŞİM</strong></p></button></div>
+  </nav>
+</header>
+
+ <a href="iletisim.html" class="discover-btn bs-btn">Keşfet</a>
+ <img src="yuksekyukseklogo.png" id="main">
+ <div id="thumbnails">
+   <img src="misal1.jpeg">
+   <img src="misal2.jpeg">
+   <img src="misal3.jpeg">
+   <img src="misal4.jpeg">
+   <img src="misal1.jpeg">
+   <img src="misal2.jpeg">
+ </div>
+
+
+ <img src="yuksekyukseklogo.png" id="main2">
+<div id="thumbnails2">
+  <img class="dnm" src="misal1.jpeg">
+  <img class="dnm" src="misal2.jpeg">
+  <img class="dnm" src="misal3.jpeg">
+  <img class="dnm" src="misal4.jpeg">
+  <img class="dnm" src="misal1.jpeg">
+  <img class="dnm" src="misal2.jpeg">
+</div>
+
+
+<script>
+var thumbnails = document.getElementById("thumbnails")
+var imgs = thumbnails.getElementsByTagName("img")
+var main = document.getElementById("main")
+var counter=0;
+
+for(let i=0;i<imgs.length;i++){
+  let img=imgs[i]
+  
+  
+  img.addEventListener("click",function(){
+  main.src=this.src
+}) 
+}
+
+var thumbnailss = document.getElementById("thumbnails2")
+var imgss = thumbnails2.getElementsByClassName("dnm")
+var mains = document.getElementById("main2")
+var counter=0;
+
+for(let i=0;i<imgs.length;i++){
+  let dnm=imgss[i]
+  
+  
+  dnm.addEventListener("click",function(){
+  mains.src=this.src
+}) 
+}
+
+// ---- ---- Const ---- ---- //
+let inputBox = document.querySelector('.input-box'),
+  searchIcon = document.querySelector('.search'),
+  closeIcon = document.querySelector('.close-icon');
+
+// ---- ---- Open Input ---- ---- //
+searchIcon.addEventListener('click', () => {
+  inputBox.classList.add('open');
+});
+// ---- ---- Close Input ---- ---- //
+closeIcon.addEventListener('click', () => {
+  inputBox.classList.remove('open');
+});
+
+function search_property() {
+    let input = document.getElementById('searchbar').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('container');
+      
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display="none";
+        }
+        else {
+            x[i].style.display="list-item";                 
+        }
+    }
+}
+</script>
+
+
+<style>
+
+.logoresim{
+height: 3.3rem;
+position: fixed;
+left: 0;
+top: 0;
+object-fit: contain;
+}
+
+.aciklama{
+  width: fit-content;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  top: 3rem;
+  position: relative;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+
+#thumbnails img, #main {
+	 box-shadow: 2px 2px 10px 5px #b8b8b8;
+	 border-radius: 10px;
+   top: 15rem;
+   position: relative;
+}
+
+ #thumbnails {
+	 text-align: center;
+
+}
+ #thumbnails img {
+	 width: 100px;
+	 height: 100px;
+	 margin: 10px;
+	 cursor: pointer;
+}
+ @media only screen and (max-width: 480px) {
+	 #thumbnails img {
+		 width: 50px;
+		 height: 50px;
+	}
+}
+ #thumbnails img:hover {
+	 transform: scale(1.05);
+   transition: all 0.5s ease;
+}
+ #main {
+	 width: 50%;
+	 height: 400px;
+	 object-fit: cover;
+	 display: block;
+	 margin: 20px auto;
+}
+ @media only screen and (max-width: 480px) {
+	 #main {
+		 width: 100%;
+	}
+}
+ .hidden {
+	 opacity: 0;
+}
+
+ #main:hover{
+   transform: scale(1.045);
+   transition: transform .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.discover-btn {
+    border: solid 0.069vw #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-family: TradeGothicLTStd-Ext;
+    font-size: 0.833vw;
+    margin: auto;
+    line-height: 5;
+    letter-spacing: 0.224vw;
+    color: #ffffff;
+    max-width: 8.75vw;
+    min-height: 8.75vw;
+    text-transform: uppercase;
+    transition: 0.6s ease;
+    animation: initial;
+}
+
+.discover-btn:hover{
+    animation: ease 2s infinite;
+    animation-iteration-count: 1;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.discover-btn a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+
+#thumbnails2 img, #main2 {
+	 box-shadow: 2px 2px 10px 5px #b8b8b8;
+	 border-radius: 10px;
+   top: 20rem;
+   position: relative;
+}
+
+ #thumbnails2 {
+	 text-align: center;
+
+}
+ #thumbnails2 img {
+	 width: 100px;
+	 height: 100px;
+	 margin: 10px;
+	 cursor: pointer;
+}
+ @media only screen and (max-width: 480px) {
+	 #thumbnails2 img {
+		 width: 50px;
+		 height: 50px;
+	}
+}
+ #thumbnails2 img:hover {
+	 transform: scale(1.05);
+   transition: all 0.5s ease;
+}
+ #main2 {
+	 width: 50%;
+	 height: 400px;
+	 object-fit: cover;
+	 display: block;
+	 margin: 20px auto;
+}
+ @media only screen and (max-width: 480px) {
+	 #main2 {
+		 width: 100%;
+	}
+}
+ .hidden {
+	 opacity: 0;
+}
+
+.sinif1{
+  display: none;
+}
+
+.sinif2{
+  display: none;
+}
+
+#main2:hover{
+   transform: scale(1.045);
+   transition: transform .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body{
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #1c1c1c;
+}
+
+
+.input-box {
+  top: 5rem;
+  position: relative;
+  max-width: 15px;
+  height: 55px;
+  margin: 0 50px;
+  border-radius: 6px;
+  transition: all 0.5s ease-in-out;
+  margin-inline: 0;
+}
+.input-box.open {
+  max-width: 14rem;
+}
+.input-box input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  padding: 0 15px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.5s ease-in-out;
+}
+.input-box.open input {
+  padding: 0 15px 0 65px;
+}
+
+.input-box .search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.input-box.open .search {
+  border-radius: 6px 0 0 6px;
+}
+.search .search-icon {
+  font-size: 30px;
+  color: #1c1c1c;
+}
+.input-box .close-icon {
+  position: absolute;
+  top: 50%;
+  right: -130px;
+  font-size: 55px;
+  color: #ffffff;
+  padding: 0px;
+  transform: translateY(-50%);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+}
+.input-box.open .close-icon {
+  transform: translateY(-50%) rotate(180deg);
+  pointer-events: auto;
+  opacity: 1;
+}
+
+
+header {
+    border-top: 3px solid #f5f5f7;
+    border-bottom: 2px solid #f5f5f7;
+    height: 3.3rem;
+    width: 100%;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    backdrop-filter: blur(120px);
+    z-index: 999;
+}
+.burger-wrapper {
+  cursor: pointer;
+}
+
+#meny {
+    background: #f5f5f7;
+    width: 10rem;
+    height: 8.1rem;
+    position: fixed;
+    right: 1rem;
+    transition-timing-function: cubic-bezier(10,2,3,1);
+    transform: translateX(50rem);
+    top: 2px;
+    z-index: 0;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+#menyAvPaa {
+    display: none;
+}
+
+#menyAvPaa:checked ~ #meny {
+    transform: translateX(0rem);
+}
+
+#burger {
+    position: absolute;
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2rem;
+    right: 1rem;
+    top: 9px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#burger > div {
+    height: 3px;
+    background-color: #f5f5f7;
+    transition: 0.5s;
+    z-index: 999;
+}
+
+#menyAvPaa:checked ~ #burger > div {
+  background-color: #000;
+  height: 15px;
+}
+
+#menyAvPaa:checked ~ #burger > div:nth-child(1) {
+    transform: translateY(15px) rotate(45deg);
+}
+
+#menyAvPaa:checked ~ #burger > div:nth-child(2) {
+    opacity: 0;
+    transition: 0.1s;
+    height: 365px;  
+}
+
+#menyAvPaa:checked ~ #burger > div:nth-child(3) {
+    transform: translateY(-15px) rotate(-45deg);
+}
+
+.ornek button{
+    line-height: 0.6;
+    min-width: 48px;
+    background-color: #0071e3;
+    position: relative;
+    border-radius: 4rem;
+    border-color: transparent;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    left: 0.3rem;
+    top: 0.5rem;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+}
+
+.ornek button:hover{
+    transform: scale(0.9);
+    transition: 0.2s;
+}
+
+.ornekk button{
+   line-height: 0.6;
+   min-width: 48px;
+   background-color: #0071e3;
+   position: relative;
+   border-radius: 4rem;
+   border-color: transparent;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   left: 0.3rem;
+   top: 1rem;
+   color: #fff;
+   text-align: center;
+   font-size: 18px;
+}
+
+.ornekk button:hover{
+  transform: scale(0.9);
+  transition: 0.2s;
+}
+
+</style>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gökhan Mert Emlak & İnşaat</title>
+    <link rel="icon" type="image/png" href="favicon-32x32.png">
+
+</head>
+<body>
+
+<div class="home">
+    <video autoplay muted loop>
+      <source src="pexels-atakan-ozkan-6144134 (1080p).mp4" type="video/mp4" />
+    </video>
+</div>
+
+
+<header>
+<div class="logo"><img class="logoresim" src="yuksekyukseklogo.png" alt="logo"></div> 
+  <input type="checkbox" id="menyAvPaa">
+  <label id="burger" for="menyAvPaa">
+      <div></div>
+      <div></div>
+      <div></div>
+  </label>
+<nav id="meny"> 
+  <div class="ornek"><button onclick="location.href='ilan.html'" type="button"><p class="yazii"><strong>İLANLAR</strong></p></button></div>
+  <div class="ornekk"><button onclick="location.href='iletisim.html'" type="button"><p class="yaziii"><strong>İLETİŞİM</strong></p></button></div>
+</nav>
+</header>
+
+<p class="izah">Bu sitenin amacı, "Gökhan Mert Emlak & İnşaat" adlı gayrimenkul ofisine ait bütün ilanları göstermektir.</p>
+<style>
+
+.izah{
+  position: fixed;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 26px;
+  color: black;
+  width: fit-content;
+  bottom: 0;
+  font-weight: 600;
+  backdrop-filter: blur(12rem);
+  border-radius: 0.8rem;
+  text-align: center;
+}
+
+body{
+  overflow: hidden; 
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.home {
+  height: 100vh;
+  position: relative;
+}
+
+video {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -9999;
+}
+
+.logoresim{
+height: 3.3rem;
+position: fixed;
+left: 0;
+top: 0;
+object-fit: contain;
+background-color: black;
+}
+
+
+header{
+    border-top: 1px solid #f5f5f7;
+    border-bottom: 2px solid whitesmoke;
+    height: 3.3rem;
+    width: 100%;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    backdrop-filter: blur(40px);
+}
+.burger-wrapper {
+  cursor: pointer;
+}
+
+#meny {
+    background: #f5f5f7;
+    width: 10rem;
+    height: 8.1rem;
+    position: fixed;
+    right: 0.6rem;
+    transition-timing-function: cubic-bezier(10,2,3,1);
+    transform: translateX(50rem);
+    top: 2px;
+    z-index: 0;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+#menyAvPaa {
+    display: none;
+}
+
+#menyAvPaa:checked ~ #meny {
+    transform: translateX(0rem);
+}
+
+#burger {
+    position: absolute;
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2rem;
+    right: 1rem;
+    top: 9px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#burger > div {
+    height: 3px;
+    background-color: black;
+    transition: 0.5s;
+    z-index: 999;
+}
+
+#menyAvPaa:checked ~ #burger > div {
+  background-color: #000;
+  height: 15px;
+}
+
+#menyAvPaa:checked ~ #burger > div:nth-child(1) {
+    transform: translateY(15px) rotate(45deg);
+}
+
+#menyAvPaa:checked ~ #burger > div:nth-child(2) {
+    opacity: 0;
+    transition: 0.1s;
+    height: 365px;  
+}
+
+#menyAvPaa:checked ~ #burger > div:nth-child(3) {
+    transform: translateY(-15px) rotate(-45deg);
+}
+
+.ornek button{
+line-height: 0.6;
+min-width: 48px;
+background-color: #0071e3;
+position: relative;
+border-radius: 4rem;
+border-color: transparent;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+left: 0.5rem;
+top: 0.5rem;
+color: #fff;
+text-align: center;
+font-size: 18px;
+}
+
+.ornek button:hover{
+transform: scale(0.9);
+transition: 0.2s;
+}
+
+.ornekk button{
+line-height: 0.6;
+min-width: 48px;
+background-color: #0071e3;
+position: relative;
+border-radius: 4rem;
+border-color: transparent;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+left: 0.5rem;
+top: 1rem;
+color: #fff;
+text-align: center;
+font-size: 18px;
+}
+
+.ornekk button:hover{
+transform: scale(0.9);
+transition: 0.2s;
+}
+</style>
+
+</body>
+</html>
