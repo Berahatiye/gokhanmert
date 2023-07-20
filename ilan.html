@@ -26,8 +26,6 @@
 </header>
 
 
-
-<div id="sss">
  <img src="yuksekyukseklogo.png" id="main">
  <div id="thumbnails">
    <img src="misal1.jpeg">
@@ -37,7 +35,18 @@
    <img src="misal1.jpeg">
    <img src="misal2.jpeg">
  </div>
+ <div class="popup-box">
+  <input type="checkbox" id="checkbox-id">
+  <label class="aa" for="checkbox-id">
+    DETAYLAR
+  </label>
+  <div class="popup-box__text">
+    BİNA YAŞI
+    ADRES
+    FİYAT
+  </div>
 </div>
+
 
 <img src="yuksekyukseklogo.png" id="main2">
 <div id="thumbnails2">
@@ -134,6 +143,8 @@
   <img class="dnm8" src="misal1.jpeg">
   <img class="dnm8" src="misal2.jpeg">
 </div>
+
+
 
 <script>
 
@@ -285,12 +296,53 @@ for(let i=0;i<imgs.length;i++){
 }) 
 }
 
-
 </script>
 
 
 <style>
 
+.aa {
+	 display: inline-block;
+	 padding: 10px 20px;
+	 background-color: #eaeaea;
+	 border: 1px solid #ccc;
+	 border-radius: 8rem;
+	 cursor: pointer;
+   position: relative;
+   left: 5rem;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-weight: 700;
+   font-size: 1.5rem;
+}
+ .aa:active {
+	 background-color: #ccc;
+	 color: #fff;
+}
+ input#checkbox-id {
+	 display: none;
+	 width: 0;
+}
+ input#checkbox-id[type="checkbox"]:checked ~ .popup-box__text {
+	 display: block;
+}
+ .popup-box {
+	 position: relative;
+}
+ .popup-box__text {
+	 display: none;
+	 position: absolute;
+	 padding: 1rem;
+	 left: 5rem;
+	 top: 100%;
+	 transform: translate(0, 5%);
+	 width: fit-content;
+	 background-color: white;
+	 border-radius: 2rem;
+   color: #000000;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-weight: 600;
+}
+ 
 
 
 .logoresim{
@@ -353,11 +405,6 @@ object-fit: contain;
 }
  .hidden {
 	 opacity: 0;
-}
-
- #main:hover{
-   transform: scale(1.045);
-   transition: transform .5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 #thumbnails2 img, #main2 {
@@ -814,7 +861,7 @@ header {
     width: 10rem;
     height: 8rem;
     position: fixed;
-    right: 0;
+    right: 1rem;
     transition-timing-function: cubic-bezier(10,2,3,1);
     transform: translateX(50rem);
     top: 2px;
@@ -835,7 +882,7 @@ header {
     cursor: pointer;
     width: 2.5rem;
     height: 2rem;
-    right: 0.1rem;
+    right: 1rem;
     top: 9px;
     display: flex;
     justify-content: space-between;
@@ -873,7 +920,7 @@ header {
     min-width: 48px;
     background-color: #0071e3;
     position: relative;
-    border-radius: 4rem;
+    border-radius: 8rem;
     border-color: transparent;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     left: 2rem;
@@ -885,7 +932,7 @@ header {
 
 .ornek button:focus{
     transform: scale(0.9);
-    transition: 0.2s;
+    transition: 0.1s;
 }
 
 .ornekk button{
@@ -905,7 +952,7 @@ header {
 
 .ornekk button:focus{
   transform: scale(0.9);
-  transition: 0.2s;
+  transition: 0.1s;
 }
 
 </style>
