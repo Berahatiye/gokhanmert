@@ -25,7 +25,15 @@
   </nav>
 </header>
 
+<div class="sinifim">
+<input class="sil"  name="clear" type="reset" value="&times;">
+<input class="arama" type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Burayı lütfen doldurun.">
+<input class="mama" name="clear" type="search" value="&#x1F50E;&#xFE0E;">
+</div>
 
+
+<ul id="stateList">
+ <li>1+1
  <img src="yuksekyukseklogo.png" id="main">
  <div id="thumbnails">
    <img src="misal1.jpeg">
@@ -38,26 +46,29 @@
  <div class="popup-box">
   <input type="checkbox" id="checkbox-id">
   <label class="aa" for="checkbox-id">
-    DETAYLAR
+    İLAN DETAYLARI
   </label>
   <div class="popup-box__text">
     BİNA YAŞI
     ADRES
     FİYAT
   </div>
-</div>
+ </div>
+ </li> 
 
-
-<img src="yuksekyukseklogo.png" id="main2">
-<div id="thumbnails2">
+ <li>
+ <img src="yuksekyukseklogo.png" id="main2">
+ <div id="thumbnails2">
   <img class="dnm" src="misal1.jpeg">
   <img class="dnm" src="misal2.jpeg">
   <img class="dnm" src="misal3.jpeg">
   <img class="dnm" src="misal4.jpeg">
   <img class="dnm" src="misal1.jpeg">
   <img class="dnm" src="misal2.jpeg">
-</div>
+ </div>
+ </li>
 
+ <li>
  <img src="yuksekyukseklogo.png" id="main3">
  <div id="thumbnails3">
   <img class="dnm1" src="foto.jpeg">
@@ -73,80 +84,141 @@
   <img class="dnm1" src="foto10.jpeg">
   <img class="dnm1" src="foto11.jpeg">
  </div>
+ </li>
 
-<img src="yuksekyukseklogo.png" id="main4">
-<div id="thumbnails4">
+ <li>
+ <img src="yuksekyukseklogo.png" id="main4">
+ <div id="thumbnails4">
   <img class="dnm2" src="misal1.jpeg">
   <img class="dnm2" src="misal2.jpeg">
   <img class="dnm2" src="misal3.jpeg">
   <img class="dnm2" src="misal4.jpeg">
   <img class="dnm2" src="misal1.jpeg">
   <img class="dnm2" src="misal2.jpeg">
-</div>
+ </div>
+ </li>
 
-<img src="yuksekyukseklogo.png" id="main5">
-<div id="thumbnails5">
+ <li>
+ <img src="yuksekyukseklogo.png" id="main5">
+ <div id="thumbnails5">
   <img class="dnm3" src="misal1.jpeg">
   <img class="dnm3" src="misal2.jpeg">
   <img class="dnm3" src="misal3.jpeg">
   <img class="dnm3" src="misal4.jpeg">
   <img class="dnm3" src="misal1.jpeg">
   <img class="dnm3" src="misal2.jpeg">
-</div>
+ </div>
+ </li>
 
-<img src="yuksekyukseklogo.png" id="main6">
-<div id="thumbnails6">
+ <li>
+ <img src="yuksekyukseklogo.png" id="main6">
+ <div id="thumbnails6">
   <img class="dnm4" src="misal1.jpeg">
   <img class="dnm4" src="misal2.jpeg">
   <img class="dnm4" src="misal3.jpeg">
   <img class="dnm4" src="misal4.jpeg">
   <img class="dnm4" src="misal1.jpeg">
   <img class="dnm4" src="misal2.jpeg">
-</div>
+ </div>
+ </li>
 
-<img src="yuksekyukseklogo.png" id="main7">
-<div id="thumbnails7">
+ <li>
+ <img src="yuksekyukseklogo.png" id="main7">
+ <div id="thumbnails7">
   <img class="dnm5" src="misal1.jpeg">
   <img class="dnm5" src="misal2.jpeg">
   <img class="dnm5" src="misal3.jpeg">
   <img class="dnm5" src="misal4.jpeg">
   <img class="dnm5" src="misal1.jpeg">
   <img class="dnm5" src="misal2.jpeg">
-</div>
+ </div>
+ </li>
 
-<img src="yuksekyukseklogo.png" id="main8">
-<div id="thumbnails8">
+ <li>
+ <img src="yuksekyukseklogo.png" id="main8">
+ <div id="thumbnails8">
   <img class="dnm6" src="misal1.jpeg">
   <img class="dnm6" src="misal2.jpeg">
   <img class="dnm6" src="misal3.jpeg">
   <img class="dnm6" src="misal4.jpeg">
   <img class="dnm6" src="misal1.jpeg">
   <img class="dnm6" src="misal2.jpeg">
-</div>
+ </div>
+ </li>
 
-<img src="yuksekyukseklogo.png" id="main9">
-<div id="thumbnails9">
+ <li>
+ <img src="yuksekyukseklogo.png" id="main9">
+ <div id="thumbnails9">
   <img class="dnm7" src="misal1.jpeg">
   <img class="dnm7" src="misal2.jpeg">
   <img class="dnm7" src="misal3.jpeg">
   <img class="dnm7" src="misal4.jpeg">
   <img class="dnm7" src="misal1.jpeg">
   <img class="dnm7" src="misal2.jpeg">
-</div>
+ </div>
+ </li>
 
-<img src="yuksekyukseklogo.png" id="main10">
-<div id="thumbnails10">
+ <li>
+ <img src="yuksekyukseklogo.png" id="main10">
+ <div id="thumbnails10">
   <img class="dnm8" src="misal1.jpeg">
   <img class="dnm8" src="misal2.jpeg">
   <img class="dnm8" src="misal3.jpeg">
   <img class="dnm8" src="misal4.jpeg">
   <img class="dnm8" src="misal1.jpeg">
   <img class="dnm8" src="misal2.jpeg">
-</div>
+ </div>
+ </li>
 
+</ul>
 
 
 <script>
+
+function mySearchFunction() {
+  // Declare variables
+  var input, filter, ul, li, item, i, txtValue;
+  // User Input
+  input = document.getElementById("myInput");
+  // Filter, makes search not case sensitive
+  filter = input.value.toUpperCase();
+  // Grabs the parent element by id
+  ul = document.getElementById("stateList");
+  // Individual item on list
+  li = ul.getElementsByTagName("li");
+
+  // Treats lists items like an array, where each item can be accessed through      it's index
+  for (i = 0; i < li.length; i++) {
+    item = li[i];
+   // Iterate over each list item to see if the value of the input, ignoring         case, matches the inner text or inner html of the item.
+    txtValue = item.textContent || item.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    // Displays list items that are a match, and nothing if no match
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+const clearIcon = document.querySelector(".clear-icon");
+  const searchBar = document.querySelector(".search");
+
+  searchBar.addEventListener("keyup", () => {
+    if(searchBar.value && clearIcon.style.visibility != "visible"){
+      clearIcon.style.visibility = "visible";
+    } else if(!searchBar.value) {
+      clearIcon.style.visibility = "hidden";
+    }
+  });
+
+  clearIcon.addEventListener("click", () => {
+    searchBar.value = "";
+    clearIcon.style.visibility = "hidden";
+})
+
+
+
 
 
 var thumbnails = document.getElementById("thumbnails")
@@ -301,6 +373,61 @@ for(let i=0;i<imgs.length;i++){
 
 <style>
 
+.mama{
+font-size: x-large;
+background-color: #f5f5f7;
+border-color: transparent;
+border-radius: 50%;
+display: none;
+}
+
+.mama:focus{
+transform: scale(0.9);
+border-color: #0071e3;
+transition: 0.1s;
+
+}
+
+.mama[type="search"]:checked ~ .popup-box__text {
+	 display: block;
+}
+
+.sil{
+font-size: x-large;
+}
+
+.sinifim{
+  left: 0;
+  top: 5rem;
+  position: relative;
+}
+
+li text{
+  display: none;
+}
+
+.arama{
+  font-size: x-large;
+  background-color: #f5f5f7;
+  color: #000;
+  border-color: transparent;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.arama:focus{
+  border-color: transparent;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  transition: 0.2s;
+}
+
+
+
 .aa {
 	 display: inline-block;
 	 padding: 10px 20px;
@@ -311,8 +438,9 @@ for(let i=0;i<imgs.length;i++){
    position: relative;
    left: 5rem;
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-   font-weight: 700;
-   font-size: 1.5rem;
+   font-weight: 600;
+   font-size: 1.4rem;
+   top: 50%;
 }
  .aa:active {
 	 background-color: #ccc;
@@ -850,6 +978,7 @@ header {
     top: 0; 
     right: 0;
     backdrop-filter: blur(120px);
+    -webkit-backdrop-filter: blur(120px);
     z-index: 999;
 }
 .burger-wrapper {
