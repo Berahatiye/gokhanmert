@@ -26,14 +26,11 @@
 </header>
 
 <div class="sinifim">
-<input class="sil"  name="clear" type="reset" value="&times;">
-<input class="arama" type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Burayı lütfen doldurun.">
-<input class="mama" name="clear" type="search" value="&#x1F50E;&#xFE0E;">
+<input class="arama"  type="search" id="myInput" onkeyup="mySearchFunction()" placeholder="Burayı lütfen doldurun." value="" autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1">
 </div>
 
-
 <ul id="stateList">
- <li>1+1
+ <li style="list-style: none;"><p style="opacity: 0;">1+1</p>
  <img src="yuksekyukseklogo.png" id="main">
  <div id="thumbnails">
    <img src="misal1.jpeg">
@@ -56,7 +53,7 @@
  </div>
  </li> 
 
- <li>
+ <li style="list-style: none;"><p style="opacity: 0;">1+1</p>
  <img src="yuksekyukseklogo.png" id="main2">
  <div id="thumbnails2">
   <img class="dnm" src="misal1.jpeg">
@@ -200,25 +197,6 @@ function mySearchFunction() {
     }
   }
 }
-
-const clearIcon = document.querySelector(".clear-icon");
-  const searchBar = document.querySelector(".search");
-
-  searchBar.addEventListener("keyup", () => {
-    if(searchBar.value && clearIcon.style.visibility != "visible"){
-      clearIcon.style.visibility = "visible";
-    } else if(!searchBar.value) {
-      clearIcon.style.visibility = "hidden";
-    }
-  });
-
-  clearIcon.addEventListener("click", () => {
-    searchBar.value = "";
-    clearIcon.style.visibility = "hidden";
-})
-
-
-
 
 
 var thumbnails = document.getElementById("thumbnails")
@@ -373,37 +351,10 @@ for(let i=0;i<imgs.length;i++){
 
 <style>
 
-.mama{
-font-size: x-large;
-background-color: #f5f5f7;
-border-color: transparent;
-border-radius: 50%;
-display: none;
-}
-
-.mama:focus{
-transform: scale(0.9);
-border-color: #0071e3;
-transition: 0.1s;
-
-}
-
-.mama[type="search"]:checked ~ .popup-box__text {
-	 display: block;
-}
-
-.sil{
-font-size: x-large;
-}
-
 .sinifim{
   left: 0;
   top: 5rem;
   position: relative;
-}
-
-li text{
-  display: none;
 }
 
 .arama{
@@ -967,6 +918,9 @@ body{
   -ms-user-select: none;
   user-select: none;
   background-color: #1c1c1c;
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  scroll-behavior: smooth;
 }
 
 header {
