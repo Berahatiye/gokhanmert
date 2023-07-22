@@ -18,9 +18,9 @@
         <div></div>
         <div></div>
     </label>
-    <nav id="meny"> 
+    <nav id="meny">
+      <div class="ornekk"><button onclick="location.href='ilan.html'" type="button"><p class="yaziii"><strong>İLANLAR</strong></p></button></div> 
       <div class="ornek"><button onclick="location.href='index.html'" type="button"><p class="yazii"><strong>ANA SAYFA</strong></p></button></div>
-      <div class="ornekk"><button onclick="location.href='ilan.html'" type="button"><p class="yaziii"><strong>İLANLAR</strong></p></button></div>
     </nav>
   </header>
 
@@ -116,18 +116,17 @@
   }
   
   #meny {
-    background: #f5f5f7;
+    background: #5a5656;
     width: 10rem;
     height: 8.1rem;
     position: fixed;
-    right: 0.9rem;
+    right: 0.6rem;
     transition-timing-function: cubic-bezier(10,2,3,1);
     transform: translateX(50rem);
-    top: 2px;
+    top: 3px;
     z-index: 0;
     transition: 0.5s;
     border-radius: 20px;
-    
   }
   #menyAvPaa {
       display: none;
@@ -157,7 +156,7 @@
   }
   
   #menyAvPaa:checked ~ #burger > div {
-    background-color: #000;
+    background-color: #f5f5f7;
     height: 15px;
   }
   
@@ -175,50 +174,49 @@
       transform: translateY(-15px) rotate(-45deg);
   }
   
-  .yazii{
-  position: relative;  
-  font-size: large;
-  }
+
   
   .ornek button{
-    line-height: 0.6;
-    min-width: 48px;
-    background-color: #0071e3;
-    position: relative;
-    border-radius: 8rem;
-    border-color: transparent;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    left: 0.3rem;
-    top: 0.5rem;
-    color: #fff;
-    text-align: center;
-    font-size: 18px;
+line-height: 0.6;
+box-sizing: border-box;
+background-color: transparent;
+position: relative;
+border-radius: 1.125rem;
+border-color: transparent;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+left: 0.5rem;
+top: 1rem;
+color: #f5f5f7;
+text-align: center;
+font-size: 18px;
   }
   
-  .ornek button:focus{
-    transform: scale(0.9);
-    transition: 0.1s;
+  .ornek button:hover{
+    background-color: #f5f5f7;
+    color: #0071e3;
+    transition: ease 0.12s;
   }
   
   
   .ornekk button{
-   line-height: 0.6;
-   min-width: 48px;
-   background-color: #0071e3;
-   position: relative;
-   border-radius: 8rem;
-   border-color: transparent;
-   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-   left: 0.8rem;
-   top: 1rem;
-   color: #fff;
-   text-align: center;
-   font-size: 18px;
+line-height: 0.6;
+box-sizing: border-box;
+background-color: transparent;
+position: relative;
+border-radius: 1.125rem;
+border-color: transparent;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+left: 0.5rem;
+top: 0.5rem;
+color: #f5f5f7;
+text-align: center;
+font-size: 18px;
   }
   
-  .ornekk button:focus{
-  transform: scale(0.9);
-  transition: 0.1s;
+  .ornekk button:hover{
+    background-color: #f5f5f7;
+    color: #0071e3;
+    transition: ease 0.12s;
   }
   
 </style>
