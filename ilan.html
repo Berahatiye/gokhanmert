@@ -23,9 +23,9 @@
   </nav>
 </header>
 
-<div class="sinifim">
+<form class="sinifim">
 <input class="arama"  type="search" id="myInput" onkeyup="mySearchFunction()" placeholder="ARADIĞINIZI BULUN" value="" autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1">
-</div>
+</form>
 
 <ul id="stateList">
  <li style="list-style: none;"><p style="opacity: 0;">1+1 kiralık</p>
@@ -171,6 +171,7 @@
 <script>
 
 function mySearchFunction() {
+
   // Declare variables
   var input, filter, ul, li, item, i, txtValue;
   // User Input
@@ -355,27 +356,35 @@ for(let i=0;i<imgs.length;i++){
   position: relative;
 }
 
-.arama{
+input.arama{
   font-size: x-large;
-  background-color: #f5f5f7;
   color: #000;
-  border-color: transparent;
+  border-color: #f5f5f7;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  text-align: center;
+  padding-left: 5px;
 }
 
-.arama:focus{
+
+
+input.arama:focus{
   border-color: transparent;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
   transition: 0.2s;
+  background-color: #f5f5f7;
 }
 
-
+input.arama:focus::-webkit-input-placeholder{
+  color: transparent;
+  transform: translateY(-50px);
+  transition: 0.2s;
+}
 
 .aa {
 	 display: inline-block;
