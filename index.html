@@ -25,8 +25,178 @@
 
 <iframe class="harita" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12265.493406578587!2d30.515583!3d39.776176!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cc17111284345d%3A0x8d9e6be9ed7f1858!2sG%C3%B6khan%20Mert%20Emlak!5e0!3m2!1str!2str!4v1690020684256!5m2!1str!2str" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+  <div class="chat-container" id="chat-container" style="display: none;">
+    <div class="chat-output" id="chat-output"></div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Type your message...">
+      <button id="send-btn">Send</button>
+        <button id="clear-chat">Delete Chat</button>
+    </div>
+  </div>
+
+  <button id="toggle-chat">Toggle Chatbot</button>
+
+
+<script>
+const chatOutput = document.getElementById('chat-output');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+const clearChatBtn = document.getElementById('clear-chat');
+const chatContainer = document.getElementById('chat-container');
+const toggleChatBtn = document.getElementById('toggle-chat');
+
+toggleChatBtn.addEventListener('click', function () {
+  if (chatContainer.style.display === 'none') {
+    chatContainer.style.display = 'block';
+  } else {
+    chatContainer.style.display = 'none';
+  }
+});
+
+sendBtn.addEventListener('click', sendMessage);
+
+userInput.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    sendMessage();
+  }
+});
+
+clearChatBtn.addEventListener('click', function () {
+  chatOutput.innerHTML = '';
+});
+
+function sendMessage() {
+  const userMessage = userInput.value;
+  if (userMessage.trim() !== '') {
+    appendUserMessage(userMessage);
+    respondToUser(userMessage);
+    userInput.value = '';
+  }
+}
+
+function appendUserMessage(message) {
+  const messageDiv = document.createElement('div');
+  messageDiv.classList.add('message');
+
+  const contentDiv = document.createElement('div');
+  contentDiv.classList.add('message-content');
+  contentDiv.textContent = `You: ${message}`;
+
+  messageDiv.appendChild(contentDiv);
+  chatOutput.appendChild(messageDiv);
+  chatOutput.scrollTop = chatOutput.scrollHeight;
+}
+
+function appendChatbotMessage(message) {
+  const messageDiv = document.createElement('div');
+  messageDiv.classList.add('message');
+  messageDiv.textContent = `Chatbot: ${message}`;
+  chatOutput.appendChild(messageDiv);
+  chatOutput.scrollTop = chatOutput.scrollHeight;
+}
+
+function respondToUser(message) {
+  // Replace this function with your own logic to generate chatbot responses
+  const reply = getChatbotReply(message);
+  setTimeout(() => {
+    appendChatbotMessage(reply);
+  }, 500);
+}
+
+function getChatbotReply(userMessage) {
+  // Replace this function with your own logic to generate chatbot responses based on user input
+  // You can use if-else statements, switch, or other methods to determine the appropriate reply
+  const userLowerCase = userMessage.toLowerCase();
+  if (userLowerCase.includes('hello') || userLowerCase.includes('hi')) {
+    return 'Hello there!';
+  } else if (userLowerCase.includes('how are you')) {
+    return 'I am just a simple chatbot, but I am functioning well!';
+  } else {
+    return 'I am sorry, I did not understand your message.';
+  }
+}
+</script>
+
 
 <style>
+
+
+.chat-container {
+  max-width: 400px;
+  margin: 10rem auto;
+  border: 2px solid #f5f5f7;
+  padding: 10px;
+  position: fixed;
+  z-index: 999;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #0071e3;
+  font-size: 18px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+}
+
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  border-color: transparent;
+  font-size: 18px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  width: calc(100% - 50px); /* Adjust the value to create space for the Send button */
+}
+
+.chat-output {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.message {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.message-content {
+  display: inline-block;
+  padding: 8px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+
+.message-content::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 12px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: #f1f1f1 transparent transparent;
+}
+
+.message-buttons {
+  display: inline-block;
+}
+
+
+.chat-input {
+  display: flex;
+  align-items: center;
+}
+
+#send-btn, #clear-chat {
+  margin-left: 5px;
+}
+
+#toggle-chat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+
 
 .harita{
     width: 100%; 

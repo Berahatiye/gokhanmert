@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
 <header>
   <div class="logo"><a href="index.html"><img class="logoresim" src="yuksekyukseklogo.png" alt="logo"></a></div>    
   <input type="checkbox" id="menyAvPaa">
@@ -26,13 +25,6 @@
 <form class="sinifim">
 <input class="arama"  type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="ARADIĞINIZI YAZIN VE BULUN" value="" autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1" minlength="4" size="26">
 </form>
-
-<button id="toggle-chat">Toggle Chatbot</button>
-<div class="chat-container" id="chat-container" style="display: none;">
-  <div class="chat-output" id="chat-output"></div>
-  <input type="text" id="user-input" placeholder="Type your message...">
-</div>
-
 
 <ul id="stateList">
  <li style="list-style: none;"><p style="opacity: 0;">1+1 kiralık</p>
@@ -176,68 +168,6 @@
 
 
 <script>
-
-const chatOutput = document.getElementById('chat-output');
-const userInput = document.getElementById('user-input');
-const chatContainer = document.getElementById('chat-container');
-const toggleChatBtn = document.getElementById('toggle-chat');
-
-toggleChatBtn.addEventListener('click', function () {
-  if (chatContainer.style.display === 'none') {
-    chatContainer.style.display = 'block';
-  } else {
-    chatContainer.style.display = 'none';
-  }
-});
-
-userInput.addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    const userMessage = userInput.value;
-    appendMessage('You', userMessage);
-    respondToUser(userMessage);
-    userInput.value = '';
-  }
-});
-
-function appendMessage(sender, message) {
-  const messageDiv = document.createElement('div');
-  messageDiv.classList.add('message');
-  messageDiv.textContent = `${sender}: ${message}`;
-  chatOutput.appendChild(messageDiv);
-  chatOutput.scrollTop = chatOutput.scrollHeight;
-}
-
-function respondToUser(message) {
-  // Replace this function with your own logic to generate chatbot responses
-  const reply = getChatbotReply(message);
-  setTimeout(() => {
-    appendMessage('Chatbot', reply);
-  }, 500);
-}
-
-function getChatbotReply(userMessage) {
-  // Replace this function with your own logic to generate chatbot responses based on user input
-  // You can use if-else statements, switch, or other methods to determine the appropriate reply
-  const userLowerCase = userMessage.toLowerCase();
-  if (userLowerCase.includes('hello') || userLowerCase.includes('hi')) {
-    return 'Hello there!';
-  } else if (userLowerCase.includes('how are you')) {
-    return 'I am just a simple chatbot, but I am functioning well!';
-  } else {
-    return 'I am sorry, I did not understand your message.';
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 function mySearchFunction() {
@@ -420,29 +350,6 @@ for(let i=0;i<imgs.length;i++){
 
 <style>
 
-.chat-container {
-  max-width: 400px;
-  margin: 20px auto;
-  border: 1px solid #ccc;
-  padding: 10px;
-}
-
-.chat-output {
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-
-
-
-
-
 .sinifim{
   left: 0;
   top: 5rem;
@@ -462,14 +369,9 @@ input.arama{
   text-align: center;
 }
 
-
-
 input.arama:focus{
   border-color: transparent;
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  border-radius: 2rem;
   transition: 0.2s;
   background-color: #f5f5f7;
 }
@@ -479,6 +381,8 @@ input.arama:focus::-webkit-input-placeholder{
   transform: translateY(-50px);
   transition: 0.2s;
 }
+
+
 
 .aa {
 	 display: inline-block;
