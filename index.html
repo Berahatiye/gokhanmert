@@ -28,13 +28,13 @@
   <div class="chat-container" id="chat-container" style="display: none;">
     <div class="chat-output" id="chat-output"></div>
     <div class="chat-input">
-      <input type="text" id="user-input" placeholder="Type your message...">
-      <button id="send-btn">
+      <input type="text" id="user-input" placeholder="İstediğinizi yazın.">
+      <button tabindex="0" id="send-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
           <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
         </svg>
       </button>
-        <button id="clear-chat">
+        <button tabindex="0" id="clear-chat">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
             <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
@@ -174,6 +174,15 @@ header{
 
 @media only screen and (max-width: 480px) {
 
+  .logoresim{
+height: 8rem;
+position: fixed;
+left: 0;
+top: 0;
+object-fit: contain;
+}
+
+
   #toggle-chat {
   position: fixed;
   bottom: 10rem;
@@ -186,7 +195,7 @@ header{
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #f5f5f7;
   text-align: center;
-  font-size: 28px;
+  font-size: 40px;
   box-shadow: 1px 1px 20px 1px #b8b8b8;
   font-weight: 700;
 }
@@ -199,16 +208,16 @@ header{
 }
 
 .chat-container {
-  max-width: 400px;
-  left: 25px;
-  top: 5rem;
-  border: 2px solid #f5f5f7;
+  max-width: 480px;
+  left: 0;
+  top: 20%;
+  border: 2px solid #0071e3;
+  background-color: #f5f5f7;
   padding: 10px;
   position: fixed;
   z-index: 999;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-color: #0071e3;
   font-size: 18px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 500;
@@ -266,14 +275,6 @@ input[type="text"] {
 #send-btn, #clear-chat {
   margin-left: 5px;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -383,6 +384,12 @@ font-size: 18px;
 }
 }
 
+
+
+
+
+
+
 @media only screen and (min-width: 480px) {
 
 #toggle-chat {
@@ -397,7 +404,7 @@ font-size: 18px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #f5f5f7;
   text-align: center;
-  font-size: 28px;
+  font-size: 30px;
   box-shadow: 1px 1px 20px 1px #b8b8b8;
   font-weight: 700;
 }
@@ -411,17 +418,17 @@ font-size: 18px;
 
 .chat-container {
   max-width: 400px;
-  left: 20rem;
-  border: 2px solid #f5f5f7;
+  left: 40%;
   padding: 10px;
   position: fixed;
   z-index: 999;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-color: #0071e3;
   font-size: 18px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 500;
+  border: 2px solid #0071e3;
+  background-color: #f5f5f7;
 }
 
 input[type="text"] {
@@ -433,7 +440,8 @@ input[type="text"] {
   font-size: 18px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 600;
-  width: calc(100% - 50px); /* Adjust the value to create space for the Send button */
+  width: calc(100% - 50px); 
+  background-color: #b8b8b8;
 }
 
 .chat-output {
@@ -475,15 +483,11 @@ input[type="text"] {
 
 #send-btn, #clear-chat {
   margin-left: 5px;
+  background-color: #f5f5f7;
+  border-color: transparent;
+  border-radius: 2rem;
+  text-align: center;
 }
-
-
-
-
-
-
-
-
 
 
 .logoresim{
@@ -496,7 +500,7 @@ object-fit: contain;
 
 
 .ornek button{
-line-height: 0.2;
+line-height: 0;
 box-sizing: border-box;
 background-color: transparent;
 position: fixed;
@@ -507,7 +511,7 @@ right: 0;
 top: 0.5rem;
 color: #f5f5f7;
 text-align: center;
-font-size: 28px;
+font-size: 30px;
 box-shadow: 1px 1px 20px 1px #b8b8b8;
 }
 
@@ -519,7 +523,7 @@ box-shadow: 1px 1px 20px 1px #b8b8b8;
 }
 
 .ornekk button{
-line-height: 0.2;
+line-height: 0;
 box-sizing: border-box;
 background-color: transparent;
 position: fixed;
@@ -530,7 +534,7 @@ right: 10rem;
 top: 0.5rem;
 color: #f5f5f7;
 text-align: center;
-font-size: 28px;
+font-size: 30px;
 box-shadow: 1px 1px 20px 1px #b8b8b8;
 }
 
