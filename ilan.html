@@ -9,6 +9,7 @@
 <body>
 
 <header>
+  <p class="ilannn"><strong>İLANLAR</strong></p>  
   <div class="logo"><a href="index.html"><img class="logoresim" src="yuksekyukseklogo.png" alt="logo"></a></div>    
   <input type="checkbox" id="menyAvPaa">
   <label id="burger" for="menyAvPaa">
@@ -24,9 +25,13 @@
 
 <form class="sinifim">
   <div class="search-bar">
-    <button class="search-button" type="button" onclick="searchButtonClick()">Search</button>
+    <button class="search-button" type="button" onclick="searchButtonClick()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+		<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+	  </svg></button>
     <input class="arama" type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="ARADIĞINIZI YAZIN VE BULUN" value="" autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1" minlength="4" size="26">
-    <button class="delete-button" type="button" onclick="deleteButtonClick()">Delete</button>
+    <button class="delete-button" type="button" onclick="deleteButtonClick()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+		<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+	  </svg></button>
   </div>
 </form>
 
@@ -932,7 +937,117 @@ font-size: 18px;
    transition: transform .5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+header {
+      border-top: 1px solid #f5f5f7;
+      border-bottom: 1px solid #f5f5f7;
+      height: 100px;
+      width: 100%;
+      position: fixed;
+      top: 0; 
+      right: 0;
+	  backdrop-filter: blur(120px);
+      -webkit-backdrop-filter: blur(120px);
+	  z-index: 999;
+      display: flex;
+    flex-direction: column;
+  }
 
+  body{
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #1c1c1c;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.logoresim{
+  height: 100px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  object-fit: contain;
+  }
+
+  .ilannn{
+  position: fixed;
+  left: 12rem;
+  top: 1.8rem;
+  color: white;
+  font-size: xx-large;
+  font-family: sans-serif;
+  }
+
+
+  .sinifim {
+    left: 0;
+    top: 6rem;
+    position: relative;
+    margin: 20px auto;
+    padding: 0;
+  }
+
+  .search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .arama {
+    font-size: 14px;
+    color: #000;
+    border-color: #f5f5f7;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    padding-right: 40px; /* Add some space for the buttons */
+  }
+
+  .search-button,
+  .delete-button {
+    height: 100%;
+    padding: 6px 6px;
+    background-color: #f5f5f7;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .search-button:hover,
+  .delete-button:hover {
+    background-color: #ddd;
+  }
+
+  .search-button {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-right: -1px; /* To remove the gap between buttons */
+	margin-top: 3.5rem;
+  }
+
+  .delete-button {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-left: -1px; /* To remove the gap between buttons */
+	margin-top: 3.5rem;
+  }
+
+  .arama:focus {
+    border-color: transparent;
+    border-radius: 2rem;
+    transition: transform 0.2s;
+    background-color: #f5f5f7;
+  }
+
+  .arama:focus::-webkit-input-placeholder {
+    color: transparent;
+    transform: translateY(-50px);
+    transition: 0.3s;
+  }
 
 
 }
@@ -1127,8 +1242,6 @@ box-shadow: 1px 1px 25px 1px #b8b8b8;
 	 display: block;
 	 margin: 20px auto;
 }
-
-
 
  .hidden {
 	 opacity: 0;
