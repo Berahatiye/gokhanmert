@@ -33,8 +33,8 @@
 		<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
 	  </svg></button>
   </div>
-  <button class="custom-button" type="button" onclick="insertText('1+1')">1+1</button>
-  <button class="custom-button" type="button" onclick="insertText('2+1')">2+1</button>
+  <button class="custom-button" type="button" onclick="insertText('1+1'); scrollDown()">1+1</button>
+  <button class="custom-button" type="button" onclick="insertText('2+1'); scrollDown()">2+1</button>
 </form>
 
 <ul id="stateList">
@@ -180,6 +180,37 @@
 
 <script>
 
+function scrollDown() {
+  const currentPosition = window.scrollY;
+  const targetPosition = currentPosition + 200;
+  const duration = 1000; // Duration in milliseconds
+
+  smoothScrollTo(targetPosition, duration);
+}
+
+function smoothScrollTo(target, duration) {
+  const startPosition = window.scrollY;
+  const distance = target - startPosition;
+  let startTime = null;
+
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const scrollAmount = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, scrollAmount);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+
+  function easeInOutQuad(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t + b;
+    t--;
+    return -c / 2 * (t * (t - 2) - 1) + b;
+  }
+
+  requestAnimationFrame(animation);
+}
+
 function mySearchFunction() {
 
   // Declare variables
@@ -232,6 +263,7 @@ function searchButtonClick() {
   input.value = text;
   mySearchFunction(); // Optional: Trigger the search function after typing the text
 }
+
 
 var thumbnails = document.getElementById("thumbnails")
 var imgs = thumbnails.getElementsByTagName("img")
@@ -1070,6 +1102,15 @@ header {
 
 
 @media only screen and (min-width: 480px){
+
+  .ilannn{
+  position: fixed;
+  right: 9.5rem;
+  top: 0.9rem;
+  color: white;
+  font-size: xx-large;
+  font-family: sans-serif;
+  }
 
   .custom-button{
     font-size: x-large;
