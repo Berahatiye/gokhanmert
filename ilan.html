@@ -33,15 +33,17 @@
 		<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
 	  </svg></button>
   </div>
-  <button class="custom-button" type="button" onclick="insertText('1+1'); scrollDown()">1+1</button>
-  <button class="custom-button" type="button" onclick="insertText('2+1'); scrollDown()">2+1</button>
-  <button class="custom-button" type="button" onclick="insertText('3+1'); scrollDown()">3+1</button>
-  <button class="custom-button" type="button" onclick="insertText('4+1'); scrollDown()">4+1</button>
-  <button class="custom-button" type="button" onclick="insertText('Merkez veya Çarşı'); scrollDown()">Merkez veya Çarşı</button>
-  <button class="custom-button" type="button" onclick="insertText('Merkez Dışındakiler'); scrollDown()">Merkez Dışındakiler</button>
-  <button class="custom-button" type="button" onclick="insertText('Kiralık'); scrollDown()">Kiralık</button>
-  <button class="custom-button" type="button" onclick="insertText('Satılık'); scrollDown()">Satılık</button>
+  <button class="custom-button" type="button" onclick="insertText('1+1'); scrollDown(); showScrollTopButton()">1+1</button>
+  <button class="custom-button" type="button" onclick="insertText('2+1'); scrollDown(); showScrollTopButton()">2+1</button>
+  <button class="custom-button" type="button" onclick="insertText('3+1'); scrollDown(); showScrollTopButton()">3+1</button>
+  <button class="custom-button" type="button" onclick="insertText('4+1'); scrollDown(); showScrollTopButton()">4+1</button>
+  <button class="custom-button" type="button" onclick="insertText('Merkez veya Çarşı'); scrollDown(); showScrollTopButton()">Merkez veya Çarşı</button>
+  <button class="custom-button" type="button" onclick="insertText('Merkez Dışındakiler'); scrollDown(); showScrollTopButton()">Merkez Dışındakiler</button>
+  <button class="custom-button" type="button" onclick="insertText('Kiralık'); scrollDown(); showScrollTopButton()">Kiralık</button>
+  <button class="custom-button" type="button" onclick="insertText('Satılık'); scrollDown(); showScrollTopButton()">Satılık</button>
 </form>
+
+<button class="scroll-top-button" onclick="scrollToTop()">Scroll to Top</button>
 
 <ul id="stateList">
  <li style="list-style: none;"><p style="opacity: 0;">1+1 kiralık</p>
@@ -185,6 +187,29 @@
 
 
 <script>
+    // Function to show the "Scroll to Top" button
+    function showScrollTopButton() {
+      const scrollTopButton = document.querySelector(".scroll-top-button");
+      scrollTopButton.style.display = "block";
+    }
+
+    // Function to scroll to the top of the page with a smooth animation
+    function scrollToTop() {
+      const currentPosition = window.scrollY;
+      const duration = 1000; // Duration in milliseconds (adjust as needed)
+
+      smoothScrollTo(0, duration);
+
+      // Check if the user is at the top of the page
+      const scrollTopButton = document.querySelector(".scroll-top-button");
+      if (currentPosition === 0) {
+        scrollTopButton.style.display = "none";
+      }
+    }
+
+    // Rest of the smoothScrollTo function remains the same
+
+
 
 // Function to scroll to the bottom of the page with a smooth animation
 function scrollDown() {
@@ -200,7 +225,7 @@ function scrollDown() {
 
   // Calculate the target position which is the bottom of the page
   const targetPosition = documentHeight - windowHeight;
-  const duration = 1500; // Duration in milliseconds (increase this value for a slower scroll)
+  const duration = 2000; // Duration in milliseconds
 
   smoothScrollTo(targetPosition, duration);
 }
@@ -214,20 +239,19 @@ function smoothScrollTo(target, duration) {
   function animation(currentTime) {
     if (startTime === null) startTime = currentTime;
     const timeElapsed = currentTime - startTime;
-    const scrollAmount = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+    const scrollAmount = linearEase(timeElapsed, startPosition, distance, duration);
     window.scrollTo(0, scrollAmount);
     if (timeElapsed < duration) requestAnimationFrame(animation);
   }
 
-  function easeInOutQuad(t, b, c, d) {
-    t /= d / 2;
-    if (t < 1) return c / 2 * t * t + b;
-    t--;
-    return -c / 2 * (t * (t - 2) - 1) + b;
+  function linearEase(t, b, c, d) {
+    return c * (t / d) + b;
   }
 
   requestAnimationFrame(animation);
 }
+
+
 
 
 
@@ -436,6 +460,13 @@ for(let i=0;i<imgs.length;i++){
 
 
 <style>
+
+/* CSS to enable smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+
 
 @media only screen and (max-width: 480px){
   .burger-wrapper {
@@ -1069,10 +1100,9 @@ header {
     font-size: 20px;
     color: #000;
     border-color: #f5f5f7;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
     text-align: center;
     padding-right: 40px; /* Add some space for the buttons */
+    border-radius: 2rem;
   }
 
   .search-button,
@@ -1105,7 +1135,6 @@ header {
 
   .arama:focus {
     border-color: transparent;
-    border-radius: 2rem;
     transition: transform 0.2s;
     background-color: #f5f5f7;
   }
@@ -1122,6 +1151,31 @@ header {
 
 
 @media only screen and (min-width: 480px){
+    /* Some styling for the scroll-to-top button */
+    .scroll-top-button {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      padding: 10px 15px;
+      background-color: #0071e3;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .scroll-top-button:hover {
+      background-color: #005cb2;
+    }
+
+
+
+
+
+
+
 
   .ilannn{
   position: fixed;
@@ -1256,10 +1310,9 @@ box-shadow: 1px 1px 25px 1px #b8b8b8;
     font-size: 2rem;
     color: #000;
     border-color: #f5f5f7;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
     text-align: center;
     padding-right: 0; /* Add some space for the buttons */
+    border-radius: 25px;
   }
 
   .search-button,
@@ -1292,10 +1345,9 @@ box-shadow: 1px 1px 25px 1px #b8b8b8;
 
   .arama:focus {
     border-color: transparent;
-    border-radius: 25px;
     transition: 0.3s;
     background-color: #f5f5f7;
-    box-shadow: 1px 1px 3px 3px #2997ff;
+    box-shadow: 1px 1px 2px 2px #2997ff;
   }
 
   .arama:focus::-webkit-input-placeholder {
